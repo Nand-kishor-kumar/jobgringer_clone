@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Employer Dashboard</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f5f7fb;
+      color: #333;
+    }
+
+    header {
+      background: #222831;
+      padding: 20px;
+      text-align: center;
+      color: #ffffff;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+
+    .dashboard {
+      max-width: 1100px;
+      margin: 30px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .welcome {
+      font-size: 1.3rem;
+      margin-bottom: 25px;
+      font-weight: 500;
+      color: #2f3542;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 14px 18px;
+      border-bottom: 1px solid #e6e6e6;
+      text-align: left;
+    }
+
+    th {
+      background: #f1f3f6;
+      color: #444;
+      font-weight: 600;
+    }
+
+    tr:hover {
+      background-color: #f9fbff;
+    }
+
+    .action-btn {
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      margin-right: 8px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .edit-btn {
+      background-color: #00b894;
+      color: white;
+    }
+
+    .delete-btn {
+      background-color: #d63031;
+      color: white;
+    }
+
+    .add-job-btn {
+      display: inline-block;
+      margin-bottom: 20px;
+      padding: 10px 20px;
+      background-color: #0984e3;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .add-job-btn:hover {
+      background-color: #0652dd;
+    }
+
+    .footer-btns {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .btn {
+      padding: 10px 18px;
+      background: #2d3436;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      font-weight: 600;
+      text-decoration: none;
+      margin: 0 10px;
+      transition: 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #1e272e;
+    }
+
+    @media screen and (max-width: 768px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+
+      th {
+        display: none;
+      }
+
+      td {
+        padding-left: 50%;
+        position: relative;
+        margin-bottom: 15px;
+      }
+
+      td::before {
+        position: absolute;
+        top: 14px;
+        left: 16px;
+        font-weight: bold;
+        content: attr(data-label);
+        color: #666;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Employer Dashboard</h1>
+  </header>
+
+  <div class="dashboard">
+    <div class="welcome">Hello, Employer 👋 | Here's your job post overview</div>
+
+    <a href="post-job.html" class="add-job-btn">+ Post New Job</a>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Job Title</th>
+          <th>Location</th>
+          <th>Applicants</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="Job Title">Frontend Developer</td>
+          <td data-label="Location">Bangalore</td>
+          <td data-label="Applicants">12</td>
+          <td data-label="Status">Open</td>
+          <td data-label="Actions">
+            <button class="action-btn edit-btn">Edit</button>
+            <button class="action-btn delete-btn">Delete</button>
+          </td>
+        </tr>
+        <tr>
+          <td data-label="Job Title">Data Analyst</td>
+          <td data-label="Location">Remote</td>
+          <td data-label="Applicants">5</td>
+          <td data-label="Status">Closed</td>
+          <td data-label="Actions">
+            <button class="action-btn edit-btn">Edit</button>
+            <button class="action-btn delete-btn">Delete</button>
+          </td>
+        </tr>
+        <tr>
+          <td data-label="Job Title">Backend Engineer</td>
+          <td data-label="Location">Hyderabad</td>
+          <td data-label="Applicants">8</td>
+          <td data-label="Status">Open</td>
+          <td data-label="Actions">
+            <button class="action-btn edit-btn">Edit</button>
+            <button class="action-btn delete-btn">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="footer-btns">
+      <a href="Home.html" class="btn">← View Job Board</a>
+      <a href="login.html" class="btn">Logout</a>
+    </div>
+  </div>
+
+</body>
+</html>

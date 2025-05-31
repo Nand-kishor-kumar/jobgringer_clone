@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Job Listings - JobRinger</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <style>
+    /* Base Styles */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f7f9fc;
+      margin: 0;
+      color: #333;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      text-align: center;
+      color: #0052d4;
+      margin-bottom: 40px;
+      font-size: 2.8rem;
+    }
+
+    /* Search Bar */
+    .search-bar {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+    .search-bar input[type="text"],
+    .search-bar input[type="search"] {
+      padding: 12px 15px;
+      border-radius: 30px;
+      border: 1.5px solid #ccc;
+      width: 280px;
+      font-size: 1rem;
+      transition: border-color 0.3s;
+    }
+    .search-bar input[type="text"]:focus,
+    .search-bar input[type="search"]:focus {
+      outline: none;
+      border-color: #4364f7;
+      box-shadow: 0 0 8px rgba(67, 100, 247, 0.5);
+    }
+    .search-bar button {
+      padding: 12px 30px;
+      background: #4364f7;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      flex-shrink: 0;
+    }
+    .search-bar button:hover {
+      background: #0052d4;
+    }
+
+    /* Job Cards */
+    .job-listings {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 25px;
+    }
+    .job-card {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      padding: 25px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: default;
+    }
+    .job-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    }
+
+    .job-title {
+      font-size: 1.3rem;
+      color: #003566;
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+    .company-name {
+      color: #4364f7;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .job-location {
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 10px;
+    }
+    .job-type {
+      display: inline-block;
+      padding: 5px 12px;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      color: white;
+      background-color: #007aff;
+      margin-bottom: 15px;
+      user-select: none;
+    }
+
+    .job-description {
+      flex-grow: 1;
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 20px;
+      line-height: 1.4;
+    }
+
+    .apply-btn {
+      align-self: flex-start;
+      padding: 10px 25px;
+      background-color: #198754;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      text-decoration: none;
+      text-align: center;
+      display: inline-block;
+    }
+    .apply-btn:hover {
+      background-color: #145c3b;
+    }
+
+    /* Pagination */
+    .pagination {
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+    }
+    .page-btn {
+      background: #e0f0ff;
+      color: #003566;
+      border-radius: 12px;
+      padding: 10px 16px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color 0.3s, color 0.3s;
+      user-select: none;
+    }
+    .page-btn:hover,
+    .page-btn.active {
+      background-color: #4364f7;
+      color: white;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .search-bar input[type="text"],
+      .search-bar input[type="search"] {
+        width: 100%;
+      }
+      .job-listings {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Explore Latest Job Openings</h1>
+
+    <form class="search-bar" onsubmit="event.preventDefault(); filterJobs();">
+      <input type="search" id="keyword" placeholder="Job title or keyword..." />
+      <input type="text" id="location" placeholder="Location (city, state)" />
+      <button type="submit">Search</button>
+    </form>
+
+    <div class="job-listings" id="jobListings">
+      <!-- Job cards inserted here by JS -->
+    </div>
+
+    <div class="pagination" id="pagination">
+      <!-- Pagination buttons inserted here by JS -->
+    </div>
+  </div>
+  
+  <script>
+    const jobs = [
+      {
+        title: "Frontend Developer",
+        company: "Tech Corp",
+        location: "New York, NY",
+        type: "Full-Time",
+        description: "Develop and maintain user-friendly web applications using React and Vue."
+      },
+      {
+        title: "Backend Engineer",
+        company: "InnovateX",
+        location: "San Francisco, CA",
+        type: "Full-Time",
+        description: "Build scalable APIs and services with Node.js and Express."
+      },
+      {
+        title: "UI/UX Designer",
+        company: "Creative Minds",
+        location: "Remote",
+        type: "Contract",
+        description: "Design intuitive user interfaces and experiences for mobile and web."
+      },
+      {
+        title: "Data Scientist",
+        company: "Analytics Hub",
+        location: "Austin, TX",
+        type: "Full-Time",
+        description: "Analyze large datasets and build predictive models using Python and R."
+      },
+      {
+        title: "DevOps Engineer",
+        company: "Cloud Solutions",
+        location: "Seattle, WA",
+        type: "Full-Time",
+        description: "Implement CI/CD pipelines and monitor cloud infrastructure."
+      },
+      {
+        title: "Project Manager",
+        company: "Global Tech",
+        location: "Boston, MA",
+        type: "Part-Time",
+        description: "Lead cross-functional teams and deliver projects on time."
+      },
+      {
+        title: "Mobile App Developer",
+        company: "App Factory",
+        location: "Remote",
+        type: "Full-Time",
+        description: "Create mobile applications for iOS and Android platforms."
+      },
+      {
+        title: "Quality Assurance Tester",
+        company: "AssureSoft",
+        location: "Denver, CO",
+        type: "Contract",
+        description: "Test and ensure software quality across multiple platforms."
+      }
+    ];
+
+    const jobsPerPage = 4;
+    let currentPage = 1;
+    let filteredJobs = jobs;
+
+    function renderJobs() {
+      const jobContainer = document.getElementById('jobListings');
+      jobContainer.innerHTML = "";
+
+      let start = (currentPage - 1) * jobsPerPage;
+      let end = start + jobsPerPage;
+      let jobsToShow = filteredJobs.slice(start, end);
+
+      if (jobsToShow.length === 0) {
+        jobContainer.innerHTML = "<p style='text-align:center; color:#666;'>No jobs found matching your search.</p>";
+        renderPagination();
+        return;
+      }
+
+      jobsToShow.forEach(job => {
+        let jobCard = document.createElement('div');
+        jobCard.className = "job-card";
+
+        // Encode job info as URL params for apply link
+        const params = new URLSearchParams({
+          title: job.title,
+          company: job.company,
+          location: job.location,
+          type: job.type,
+          description: job.description
+        }).toString();
+
+        jobCard.innerHTML = `
+          <div>
+            <div class="job-title">${job.title}</div>
+            <div class="company-name">${job.company}</div>
+            <div class="job-location">${job.location}</div>
+            <div class="job-type">${job.type}</div>
+            <div class="job-description">${job.description}</div>
+          </div>
+          <a href="apply.html?${params}" class="apply-btn" target="_blank" rel="noopener noreferrer">Apply Now</a>
+        `;
+
+        jobContainer.appendChild(jobCard);
+      });
+
+      renderPagination();
+    }
+
+    function renderPagination() {
+      const paginationContainer = document.getElementById('pagination');
+      paginationContainer.innerHTML = "";
+
+      let totalPages = Math.ceil(filteredJobs.length / jobsPerPage);
+      if (totalPages <= 1) return;
+
+      for (let i = 1; i <= totalPages; i++) {
+        let pageBtn = document.createElement('div');
+        pageBtn.className = 'page-btn' + (i === currentPage ? ' active' : '');
+        pageBtn.textContent = i;
+        pageBtn.onclick = () => {
+          currentPage = i;
+          renderJobs();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+        paginationContainer.appendChild(pageBtn);
+      }
+    }
+
+    function filterJobs() {
+      const keyword = document.getElementById('keyword').value.toLowerCase().trim();
+      const location = document.getElementById('location').value.toLowerCase().trim();
+
+      filteredJobs = jobs.filter(job => {
+        const matchesKeyword = keyword === "" || job.title.toLowerCase().includes(keyword) || job.description.toLowerCase().includes(keyword);
+        const matchesLocation = location === "" || job.location.toLowerCase().includes(location);
+        return matchesKeyword && matchesLocation;
+      });
+
+      currentPage = 1;
+      renderJobs();
+    }
+
+    // Initial render
+    renderJobs();
+  </script>
+</body>
+</html>

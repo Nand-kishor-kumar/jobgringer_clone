@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Apply for Job</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f7f9fc;
+      margin: 0;
+      padding: 40px 20px;
+      color: #333;
+    }
+    .container {
+      max-width: 700px;
+      margin: 0 auto;
+      background: white;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #0052d4;
+      margin-bottom: 10px;
+      font-size: 2.5rem;
+    }
+    h3 {
+      color: #4364f7;
+      margin-top: 0;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+    p {
+      font-size: 1.1rem;
+      line-height: 1.5;
+      color: #555;
+    }
+    .back-link {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 10px 25px;
+      background: #4364f7;
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: background-color 0.3s;
+    }
+    .back-link:hover {
+      background: #0052d4;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 id="jobTitle">Job Title Not Found</h1>
+    <h3 id="companyName">Company Not Found</h3>
+    <p><strong>Location:</strong> <span id="jobLocation">Location Not Found</span></p>
+    <p><strong>Job Description:</strong></p>
+    <p id="jobDescription">Job description is not available.</p>
+
+    <a href="Home.html" class="back-link">← Back to Jobs</a>
+  </div>
+
+  <script>
+    // Get URL parameters
+    const params = new URLSearchParams(window.location.search);
+
+    const title = params.get('title');
+    const company = params.get('company');
+    const location = params.get('location');
+    const description = params.get('description');
+
+    if (title) document.getElementById('jobTitle').textContent = decodeURIComponent(title);
+    if (company) document.getElementById('companyName').textContent = decodeURIComponent(company);
+    if (location) document.getElementById('jobLocation').textContent = decodeURIComponent(location);
+    if (description) document.getElementById('jobDescription').textContent = decodeURIComponent(description);
+  </script>
+</body>
+</html>

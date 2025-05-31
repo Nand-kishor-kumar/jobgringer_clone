@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+<link rel="stylesheet" href="styles.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+<body>
+
+    <section>
+      <nav class="navbar navbar-expand-lg bg-primary navbar-dark sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Jobringer</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarScroll">
+      <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="home.html">Home</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="job-listings.html">Job Listings</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="job-details.html">Job Details</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dashboards
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="jobseeker-dashboard.html">Job Seeker</a></li>
+            <li><a class="dropdown-item" href="employer-dashboard.html">Employer</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="post-job.html">Post a Job</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html">Contact Us</a>
+        </li>
+      </ul>
+
+      <form class="d-flex me-2" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search jobs..." aria-label="Search">
+        <button class="btn btn-light" type="submit">Search</button>
+      </form>
+
+      <a href="login.html" class="btn btn-outline-light me-2">Login</a>
+      <a href="register.html" class="btn btn-light">Register</a>
+    </div>
+  </div>
+</nav>
+
+    </section>
+   
+   <div class="job-seeker-section">
+  <h1 class="title-main">Bringing you the Perfect Job!</h1>
+  <h2 class="title-sub">11,000+ JOBS to Apply</h2>
+
+  <div class="job-search-container">
+    <form class="search-form">
+      <span class="search-placeholder">Search Jobs Now</span>
+      <span class="search-button">Search</span>
+    </form>
+
+    <div class="job-buttons">
+      <a href="https://www.jobringer.com/jobs" class="btn-view-jobs">View Jobs</a>
+      <a href="https://www.jobringer.com/jobseeker/registration?signup" class="btn-register">Register For FREE</a>
+    </div>
+
+    <div class="quick-search">
+      <p><strong>Quick Job Search</strong> <i class="fa-solid fa-magnifying-glass"></i></p>
+      <div class="tags-container">
+        <a href="https://www.jobringer.com/jobs-for-fresher">#Fresher</a>
+        <a href="https://www.jobringer.com/jobs-for-WFH">#Work From Home</a>
+        <a href="https://www.jobringer.com/jobs-for-WFH">#WFH</a>
+        <a href="https://www.jobringer.com/jobs-in-information-technology">#IT</a>
+        <a href="https://www.jobringer.com/jobs-in-Human-Resources">#HR</a>
+        <a href="https://www.jobringer.com/jobs-for-back-office">#Back Office</a>
+        <a href="https://www.jobringer.com/jobs-for-BPO">#BPO Jobs</a>
+        <a href="https://www.jobringer.com/jobs-in-ITES">#ITES</a>
+        <a href="https://www.jobringer.com/jobs-in-finance">#Finance</a>
+        <a href="https://www.jobringer.com/jobs-in-accounts">#Accounts</a>
+        <a href="https://www.jobringer.com/jobs-in-medical">#Medical</a>
+        <a href="https://www.jobringer.com/jobs-in-pharma">#Pharma</a>
+        <a href="https://www.jobringer.com/jobs-for-manager">#Manager</a>
+        <a href="https://www.jobringer.com/jobs-for-developer">#Developer</a>
+        <a href="https://www.jobringer.com/jobs-for-Marketing">#Marketing</a>
+        <a href="https://www.jobringer.com/jobs-in-Engineering">#Engineering</a>
+        <a href="https://www.jobringer.com/jobs">#Non Government Jobs</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+ <div class="row row-cols-1 row-cols-md-2 align-items-md-center g-5 py-5 job-features-section">
+
+
+  <!-- Left content -->
+  <div class="col d-flex flex-column align-items-start gap-3">
+    <h2 class="fw-bold text-body-emphasis feature-heading">Discover Opportunities That Fit You Best</h2>
+    <p class="text-body-secondary feature-subtext">
+      Explore 11,000+ jobs across different sectors. Whether you're a fresher or an experienced professional, we help you find your next big role with ease.
+    </p>
+    <a href="https://www.jobringer.com/jobs" class="btn btn-primary btn-lg">Start Exploring Jobs</a>
+  </div>
+
+  <!-- Right feature blocks -->
+  <div class="col">
+    <div class="row row-cols-1 row-cols-sm-2 g-4">
+      
+      <div class="col d-flex flex-column gap-2">
+        <div class="feature-icon-small text-bg-primary">
+          <i class="fas fa-user-graduate"></i>
+        </div>
+        <h4 class="fw-semibold mb-0 text-body-emphasis">Fresher Friendly</h4>
+        <p class="text-body-secondary">Special categories for freshers to find their first dream job easily.</p>
+        
+      </div>
+
+      <section class="job-features-section">
+  <div class="container py-5">
+    <div class="row row-cols-1 row-cols-md-2 align-items-md-center g-5">
+         
+
+      <!-- Left Section -->
+      <div class="col d-flex flex-column align-items-start gap-3 text-light">
+        <h2 class="fw-bold feature-heading">Why Choose JobRinger?</h2>
+        <p class="feature-subtext">Find jobs that match your skills, experience, and dreams. From freshers to professionals, we’ve got you covered.</p>
+        <a href="#" class="btn btn-warning btn-lg">Get Started</a>
+      </div>
+
+      <!-- Right Feature Cards -->
+      <div class="col">
+        <div class="row row-cols-1 row-cols-sm-2 g-4">
+          <div class="col feature-card fade-in">
+            <div class="feature-icon">
+              <i class="fas fa-briefcase"></i>
+            </div>
+            <h4 class="fw-semibold mb-1">10K+ Jobs</h4>
+            <p>Thousands of fresh openings posted daily.</p>
+          </div>
+          <div class="col feature-card fade-in delay-1">
+            <div class="feature-icon">
+              <i class="fas fa-user-tie"></i>
+            </div>
+            <h4 class="fw-semibold mb-1">Verified Employers</h4>
+            <p>Only trusted companies and recruiters.</p>
+          </div>
+          <div class="col feature-card fade-in delay-2">
+            <div class="feature-icon">
+              <i class="fas fa-rocket"></i>
+            </div>
+            <h4 class="fw-semibold mb-1">Fast Hiring</h4>
+            <p>Instant alerts and quick interview calls.</p>
+          </div>
+          <div class="col feature-card fade-in delay-3">
+            <div class="feature-icon">
+              <i class="fas fa-laptop-code"></i>
+            </div>
+            <h4 class="fw-semibold mb-1">Remote Jobs</h4>
+            <p>Work from anywhere with remote-friendly roles.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="featured-employers-section">
+  <div class="container">
+    <h2 class="section-title">Featured Employers</h2>
+    <div class="employers-grid">
+      <!-- Google -->
+      <div class="employer-card fade-in delay-1">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google Logo">
+        <h3>Google</h3>
+        <p>Leading in innovation and AI research.</p>
+        <a href="https://careers.google.com/" target="_blank" class="btn-visit">Visit Profile</a>
+      </div>
+      <!-- Microsoft -->
+      <div class="employer-card fade-in delay-2">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft Logo">
+        <h3>Microsoft</h3>
+        <p>Empowering every person and organization.</p>
+        <a href="https://careers.microsoft.com/" target="_blank" class="btn-visit">Visit Profile</a>
+      </div>
+      <!-- Amazon -->
+      <div class="employer-card fade-in delay-3">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon Logo">
+        <h3>Amazon</h3>
+        <p>Customer-centric global marketplace leader.</p>
+        <a href="https://www.amazon.jobs/" target="_blank" class="btn-visit">Visit Profile</a>
+      </div>
+
+
+<!-- Infosys -->
+<div class="employer-card fade-in delay-5">
+  <img src="https://1000logos.net/wp-content/uploads/2020/08/Infosys-Logo.png" alt="Infosys Logo" style="width:150px;">
+  <h3>Infosys</h3>
+  <p>Digital transformation partner to global enterprises.</p>
+  <a href="https://www.infosys.com/careers/" target="_blank" class="btn-visit">Visit Profile</a>
+</div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-about animate-fade-up">
+        <h4>JobRinger</h4>
+        <p>Your trusted platform for the best job opportunities and verified employers.</p>
+      </div>
+      <div class="footer-links animate-fade-up delay-1">
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Jobs</a></li>
+          <li><a href="#">Employers</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact animate-fade-up delay-2">
+        <h5>Contact</h5>
+        <p>Email: nandkishore0899@gmail.com.com</p>
+        <p>Phone: +91 70040 81417</p>
+        <div class="social-icons">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 JobRinger. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+</body>
+</html>
